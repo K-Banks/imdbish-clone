@@ -1,0 +1,14 @@
+<div class="panel panel-default" *ngFor="let movie of movies" (click)="movieSelected(movie)">
+  <div class="panel-heading">
+    <h1>{{movie.title}}</h1>
+  </div>
+  <div class="panel-body">
+    <h4>{{movie.release}}, {{movie.rating}}</h4>
+    <img src={{movie.image}} alt="image of movie">
+  <br>
+  <br>
+    <p>
+      {{movie.description}} <a href={{movie.trailer}}>Click here to watch the trailer.</a>
+    </p>
+  </div>
+</div>
