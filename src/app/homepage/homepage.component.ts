@@ -18,8 +18,8 @@ export class HomepageComponent implements OnInit {
   constructor(private router: Router, private movieService: MovieService) { }
 
 
-  movieSelected(clickedMovie: Movie){
-    this.router.navigate(['detail', clickedMovie.title]);
+  movieSelected(clickedMovie){
+    this.router.navigate(['detail', clickedMovie.$key]);
   };
 
   ngOnInit() {

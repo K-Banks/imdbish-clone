@@ -15,10 +15,7 @@ export class MovieService {
   }
 
   getMovieById(movieId: string){
-    // for (var i = 0; i < movies.length; i++) {
-    //   if (movies[i].title === movieId) {
-    //     return movies[i];
-    //   }
-    // }
+    // debugger;
+    return this.database.object('moviesFirebase/' + movieId);
   }
 }

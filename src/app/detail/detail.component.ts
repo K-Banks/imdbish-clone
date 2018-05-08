@@ -3,6 +3,7 @@ import { MovieService } from '../movie.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Movie } from '../model/movie.model';
+import { FirebaseObjectObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-detail',
@@ -12,7 +13,7 @@ import { Movie } from '../model/movie.model';
 })
 export class DetailComponent implements OnInit {
   movieId: string;
-  movieToDisplay: Movie;
+  movieToDisplay;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,9 +23,13 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
-      this.movieId = urlParameters['title'];
+      this.movieId = urlParameters['id'];
     });
-    this.movieToDisplay = this.movieService.getMovieById(this.movieId);
+    this.movieToDisplay = this.movieService.getMovieById(this.movieId).subscribe(dataLastEmittedFromObserver => {
+      this.movieToDisplay = dataLastEmittedFromObserver;
+      console.log(this.movieToDisplay);
+    });
+    console.log(this.movieService.getMovieById(this.movieId));
   }
 
 }

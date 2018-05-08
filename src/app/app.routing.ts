@@ -10,7 +10,7 @@ const appRoutes: Routes = [
     component: HomepageComponent
   },
   {
-    path:  'detail/:title',
+    path:  'detail/:id',
     component: DetailComponent
   }
 ];
