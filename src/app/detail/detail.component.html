@@ -1,3 +1,14 @@
-<p>
-  detail works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>{{movieToDisplay.title}}</h1>
+  </div>
+  <div class="panel-body">
+    <h4>{{movieToDisplay.release}}, {{movieToDisplay.rating}}</h4>
+    <img src={{movieToDisplay.image}} alt="image of movie">
+  <br>
+  <br>
+    <p>
+      {{movieToDisplay.description}} <a href={{movieToDisplay.trailer}}>Click here to watch the trailer.</a>
+    </p>
+  </div>
+</div>
